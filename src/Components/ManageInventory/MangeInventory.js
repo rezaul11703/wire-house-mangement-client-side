@@ -1,7 +1,7 @@
-import userEvent from '@testing-library/user-event';
+
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const MangeInventory = (props) => {
   const [items,setItems]=useState([])
