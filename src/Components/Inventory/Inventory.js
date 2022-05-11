@@ -42,7 +42,22 @@ const Inventory = () => {
     const  previousQuantity = parseInt(singleUser.quantity)
     const normalUser=(previousQuantity-1)
     if(normalUser>0){
-      
+      const finalUser=JSON.stringify(normalUser)
+    const updateUser={finalUser} 
+    const url= `http://localhost:5000/inventory/${id}`
+    fetch(url,{
+      method: "PUT",
+      headers:{
+        'content-type':"application/json"
+      },
+      body:JSON.stringify(updateUser)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      setUser(data)
+    })
+    alert("sucessfully Updated")
+    navigate('/')
   }
   else{
     alert("You have less Item")

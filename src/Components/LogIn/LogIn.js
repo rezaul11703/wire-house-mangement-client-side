@@ -28,9 +28,7 @@ const LogIn = () => {
         alert("Sucessefully Login")
         return navgate(from, { replace: true })
       }
-      if(loading|| loading1){
-        return <SpinnerCircularSplit/>
-      }
+      
       if(error|| error1){
         alert("Please Provide Valid Information or Reset Pass")
         navgate('/login')
