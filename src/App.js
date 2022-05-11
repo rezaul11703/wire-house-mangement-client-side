@@ -38,13 +38,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/smartmonitor' element={<SmartMonitor></SmartMonitor>}></Route>
-        <Route path='/acr' element={<Acces></Acces>}></Route>
-        <Route path='/smartmobi' element={<Mobile></Mobile>}></Route>
-        <Route path='/smartwatch' element={<SmartWatch></SmartWatch>}></Route>
-        <Route path='/laptop' element={<LapTop></LapTop>}></Route>
-        <Route path='/desktop' element={<Computer></Computer>}></Route>
         
-        <Route path='*' element={<FourOFour></FourOFour>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
