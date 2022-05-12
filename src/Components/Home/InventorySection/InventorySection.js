@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 const InventorySection = () => {
   const [displayProducts,setDisplayProducts]= useState([])
   useEffect(()=>{
-    const url= 'http://localhost:5000/displayProduct'
+    const url= 'https://stark-beyond-11447.herokuapp.com/displayProduct'
     fetch(url)
     .then(res=>res.json())
     .then(data=> {

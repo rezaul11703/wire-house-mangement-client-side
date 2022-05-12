@@ -8,13 +8,13 @@ const Inventory = () => {
   const [singleUser, setUser] = useState({})
   const navigate = useNavigate()
   useEffect(() => {
-    const url = `http://localhost:5000/inventory/${id}`
+    const url = `https://stark-beyond-11447.herokuapp.com/inventory/${id}`
     fetch(url)
       .then(res => res.json())
       .then(data => setUser(data))
   }, [])
   useEffect(() => {
-    const url = `http://localhost:5000/inventory/extra/${id}`
+    const url = `https://stark-beyond-11447.herokuapp.com/inventory/extra/${id}`
     fetch(url)
       .then(res => res.json())
       .then(data => setUser(data))
@@ -26,7 +26,7 @@ const Inventory = () => {
     const previousQuantity = parseInt(singleUser.quantity)
     const finalUser = JSON.stringify(updateQuantity + previousQuantity)
     const updateUser = { finalUser }
-    const url = `http://localhost:5000/inventory/${id}`
+    const url = `https://stark-beyond-11447.herokuapp.com/inventory/${id}`
     fetch(url, {
       method: "PUT",
       headers: {
@@ -42,7 +42,7 @@ const Inventory = () => {
     alert("sucessfully Updated")
     navigate('/')
 
-    const urlOne = `http://localhost:5000/inventory/extra/${id}`
+    const urlOne = `https://stark-beyond-11447.herokuapp.com/inventory/extra/${id}`
     fetch(urlOne, {
       method: "PUT",
       headers: {
@@ -66,7 +66,7 @@ const Inventory = () => {
     if (normalUser > 0) {
       const finalUser = JSON.stringify(normalUser)
       const updateUser = { finalUser }
-      const url = `http://localhost:5000/inventory/${id}`
+      const url = `https://stark-beyond-11447.herokuapp.com/inventory/${id}`
       fetch(url, {
         method: "PUT",
         headers: {
@@ -80,7 +80,7 @@ const Inventory = () => {
         })
       alert("sucessfully Updated")
       navigate('/')
-      const urlone = `http://localhost:5000/inventory/extra/${id}`
+      const urlone = `https://stark-beyond-11447.herokuapp.com/inventory/extra/${id}`
       fetch(urlone, {
         method: "PUT",
         headers: {

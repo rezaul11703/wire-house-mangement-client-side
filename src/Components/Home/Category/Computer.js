@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Computer = () => {
   const [displayProducts,setDisplayProducts]= useState([])
   useEffect(()=>{
-    const url= 'http://localhost:5000/desktop'
+    const url= 'https://stark-beyond-11447.herokuapp.com/desktop'
     fetch(url)
     .then(res=>res.json())
     .then(data=> {

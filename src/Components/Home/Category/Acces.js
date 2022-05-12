@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Acces = () => {
   const [displayProducts,setDisplayProducts]= useState([])
   useEffect(()=>{
-    const url= 'http://localhost:5000/acr'
+    const url= 'https://stark-beyond-11447.herokuapp.com/acr'
     fetch(url)
     .then(res=>res.json())
     .then(data=> {

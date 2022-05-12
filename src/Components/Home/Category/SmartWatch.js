@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SmartWatch = () => {const [displayProducts,setDisplayProducts]= useState([])
   useEffect(()=>{
-    const url= 'http://localhost:5000/smartwatch'
+    const url= 'https://stark-beyond-11447.herokuapp.com/smartwatch'
     fetch(url)
     .then(res=>res.json())
     .then(data=> {

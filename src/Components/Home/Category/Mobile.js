@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Mobile = () => {
   const [displayProducts,setDisplayProducts]= useState([])
   useEffect(()=>{
-    const url= 'http://localhost:5000/smartmobi'
+    const url= 'https://stark-beyond-11447.herokuapp.com/smartmobi'
     fetch(url)
     .then(res=>res.json())
     .then(data=> {

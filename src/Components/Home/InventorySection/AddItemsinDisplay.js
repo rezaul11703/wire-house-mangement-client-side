@@ -6,7 +6,7 @@ const AddItemsinDisplay = () => {
   const { register, handleSubmit } = useForm();
   const navigate=useNavigate()
   const onSubmit = data => {
-    const url= 'http://localhost:5000/displayProduct'
+    const url= 'https://stark-beyond-11447.herokuapp.com/displayProduct'
    fetch(url, {
      method: "POST",
      headers:{

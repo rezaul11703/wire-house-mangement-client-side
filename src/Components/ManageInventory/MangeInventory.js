@@ -7,13 +7,13 @@ const MangeInventory = (props) => {
   const [items, setItems] = useState([])
   const [fetureditems, setfeturedItems] = useState([])
   useEffect(() => {
-    const url = 'http://localhost:5000/addedItems'
+    const url = 'https://stark-beyond-11447.herokuapp.com/addedItems'
     fetch(url)
       .then(res => res.json())
       .then(data => setItems(data))
   }, [])
   useEffect(() => {
-    const url = 'http://localhost:5000/displayProduct'
+    const url = 'https://stark-beyond-11447.herokuapp.com/displayProduct'
     fetch(url)
       .then(res => res.json())
       .then(data => setfeturedItems(data))
@@ -24,7 +24,7 @@ const MangeInventory = (props) => {
     console.log(id)
     if (process) {
       console.log(id)
-      const url = `http://localhost:5000/inventory/${id}`
+      const url = `https://stark-beyond-11447.herokuapp.com/inventory/${id}`
       fetch(url, {
         method: "DELETE"
       })
