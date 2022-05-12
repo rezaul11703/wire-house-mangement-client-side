@@ -3,7 +3,7 @@ Smart Store
 # Description : This is a Site where you can see the inventory products , make calculation of its quantity , add item, update quantity and remove item 
 
 
-Libraries:
+Libraries/Framworks:
 1. React Hook Form
 2. Hero icon
 3. React Route
