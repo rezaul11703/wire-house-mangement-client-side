@@ -46,7 +46,7 @@ function App() {
         <Route path='/smartwatch' element={<SmartWatch></SmartWatch>}></Route>
         <Route path='/laptop' element={<LapTop></LapTop>}></Route>
         <Route path='/desktop' element={<Computer></Computer>}></Route>
-        
+
         <Route path='*' element={<FourOFour></FourOFour>}></Route>
       </Routes>
       <Footer></Footer>
