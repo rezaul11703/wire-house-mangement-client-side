@@ -1,4 +1,4 @@
-Smart Store
+# Smart Store
  # Live Site Link ( https://smart-inventory-solution.web.app)
 # Description : This is a Site where you can see the inventory products , make calculation of its quantity , add item, update quantity and remove item 
 
