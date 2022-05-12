@@ -13,6 +13,12 @@ const Inventory = () => {
     .then(res=>res.json())
     .then(data=>setUser(data))
   },[])
+  useEffect(()=>{
+    const url= `http://localhost:5000/inventory/extra/${id}`
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setUser(data))
+  },[])
   
   const handleIncreaseQuantity=event=>{
     event.preventDefault()
@@ -22,6 +28,22 @@ const Inventory = () => {
     const updateUser={finalUser} 
     const url= `http://localhost:5000/inventory/${id}`
     fetch(url,{
+      method: "PUT",
+      headers:{
+        'content-type':"application/json"
+      },
+      body:JSON.stringify(updateUser)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      setUser(data)
+    })
+    event.target.reset()
+    alert("sucessfully Updated")
+    navigate('/')
+
+    const urlOne= `http://localhost:5000/inventory/extra/${id}`
+    fetch(urlOne,{
       method: "PUT",
       headers:{
         'content-type':"application/json"
@@ -46,6 +68,20 @@ const Inventory = () => {
     const updateUser={finalUser} 
     const url= `http://localhost:5000/inventory/${id}`
     fetch(url,{
+      method: "PUT",
+      headers:{
+        'content-type':"application/json"
+      },
+      body:JSON.stringify(updateUser)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      setUser(data)
+    })
+    alert("sucessfully Updated")
+    navigate('/')
+    const urlone= `http://localhost:5000/inventory/extra/${id}`
+    fetch(urlone,{
       method: "PUT",
       headers:{
         'content-type':"application/json"

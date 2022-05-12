@@ -1,19 +1,19 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SpinnerCircular, SpinnerCircularSplit } from 'spinners-react';
 import auth from '../../firebase.init';
 
 const Register = () => {
+  const navigate=useNavigate()
   const [
     createUserWithEmailAndPassword,
     user,
     loading,
     error,
-  ] = useCreateUserWithEmailAndPassword(auth);
-  const [sendEmailVerification, sending,error1] = useSendEmailVerification(
-    auth)
+  ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+ 
   const handleRegister=event=>{
     event.preventDefault()
     const name = event.target.name.value
@@ -22,14 +22,13 @@ const Register = () => {
     createUserWithEmailAndPassword(email,pass)
   }
   if(user){
-    sendEmailVerification()
     alert("email Verification Sent")
-    {<p> Please check your mail</p>}
+    return navigate('/') 
   }
-  if(loading||sending){
+  if(loading){
     return <SpinnerCircularSplit/>
   }
-  if(error||error1){
+  if(error){
     alert("try Again")
   }
   return (

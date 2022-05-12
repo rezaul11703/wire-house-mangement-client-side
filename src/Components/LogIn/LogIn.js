@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useAuthState, useSendPasswordResetEmail, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -15,26 +15,27 @@ import { async } from '@firebase/util';
 const LogIn = () => {
   const [user, loading, error] = useAuthState(auth);
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
-  const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(auth);
   const navgate=useNavigate()
   const location=useLocation()
+  const emailId= useRef('')
+  const passNo= useRef('')
   let from = location.state?.from?.pathname || "/";
   const Handlelogin=event=>{
       event.preventDefault()
-      const email= event.target.email.value
-      const pass= event.target.passward.value
+      const email=emailId.current.value
+      const pass= passNo.current.value
       signInWithEmailAndPassword(auth,email,pass)
+      if(loading){
+        return <SpinnerCircularSplit/>
+      }
       if(user){
         alert("Sucessefully Login")
         return navgate(from, { replace: true })
       }
-      if(loading|| loading1){
-        return <SpinnerCircularSplit/>
-      }
-      if(error|| error1){
-        alert("Please Provide Valid Information or Reset Pass")
-        navgate('/login')
-      }
+      if(error){
+        return console.log(error)
+       }
+      
      
   }
   const handleloginWithGoogle=() =>
@@ -61,11 +62,11 @@ const LogIn = () => {
       <Form   onSubmit={Handlelogin}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" name="email" placeholder="Enter email" />
+    <Form.Control ref={emailId} type="email" name="email" placeholder="Enter email" required />
   </Form.Group>
   <Form.Group className="mb-3"  controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" name="passward" placeholder="Password" />
+    <Form.Control ref={passNo} type="password" name="passward" placeholder="Password" required />
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
   </Form.Group>
